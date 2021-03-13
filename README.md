@@ -8,8 +8,8 @@
 - It does not store your uploaded image on any database.
 
 #### Examples
-![Monalisa](https://ibb.co/LRN0MM4)
-![Asian girl](https://ibb.co/LN9vvF8)
+![Asian girl](https://i.ibb.co/VwM331t/Asian.png)
+![Monalisa](https://i.ibb.co/dMmfSSn/download-2.png)
 
 ## License
 
