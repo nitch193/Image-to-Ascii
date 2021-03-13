@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  margin: 15px;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+#file {
+  margin: 10px 0 0 65px;
+}
