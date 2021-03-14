@@ -1,6 +1,7 @@
 const file = document.getElementById("file");
 const canvas = document.getElementById("canvas");
 const ascii = document.getElementById("ascii-canvas");
+const change = document.getElementById("change");
 const brightnessChars = " .,:;ox%#@";
 function main() {
   let ctx = canvas.getContext("2d");
@@ -8,16 +9,13 @@ function main() {
   img.crossOrigin = "anonymous";
   file.addEventListener("change", (e) => {
     img.src = URL.createObjectURL(e.target.files[0]);
-    img.onload = function () {
-      canvas.width = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-      let iData = ctx.getImageData(0, 0, img.width, img.height);
-      let asciiCtx = ascii.getContext("2d");
-      ascii.width = img.width;
-      ascii.height = img.height;
-      manipulate(iData, ascii, asciiCtx);
-    };
+    getImage(img, ctx);
+  });
+  change.addEventListener("click", () => {
+    const url = document.getElementById("imgurl");
+    if (url.value) img.src = url.value;
+    getImage(img, ctx);
+    url.value = "";
   });
 }
 
@@ -25,8 +23,6 @@ main();
 
 function manipulate(iData, pad, context) {
   grayScale(iData);
-  context.putImageData(iData, 0, 0);
-  console.log(iData);
   drawText(iData, pad, context);
 }
 
@@ -40,11 +36,25 @@ function grayScale(iData) {
   }
 }
 
+function getImage(img, ctx) {
+  img.onload = function () {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+    let iData = ctx.getImageData(0, 0, img.width, img.height);
+    let asciiCtx = ascii.getContext("2d");
+    ascii.width = img.width;
+    ascii.height = img.height;
+    manipulate(iData, ascii, asciiCtx);
+  };
+}
+
 // function getCharacterForGrayScale(grayScale) {
 //   return grayRamp[Math.ceil(((grayRamp.length - 1) * grayScale) / 255)];
 // }
 
 function drawText(iData, pad, context) {
+  context.fillStyle = "#000";
   context.fillRect(0, 0, pad.width, pad.height);
   context.fillStyle = "#fff";
   context.textAlign = "left";
