@@ -9,7 +9,7 @@
 
 #### ToDo
 - [ ] Basic Styling
-- [ ] Converting with Image Urls
+- [X] Converting with Image Urls
 - [ ] User controls
 - [ ] Ascii Video
 
