@@ -1,16 +1,20 @@
-.container {
+body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+.container {
+  display: flex;
+  margin: 15px;
 }
 
 canvas {
   margin: 15px;
-  max-width: 80%;
-  max-height: 80%;
 }
-
+video {
+  width: 150px;
+  height: 100px;
+}
 #file {
   margin: 10px 0 0 65px;
 }
