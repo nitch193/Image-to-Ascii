@@ -93,7 +93,7 @@ function getVideo(vid, ctx) {
 // }
 
 function drawText(iData, pad, context) {
-  context.fillStyle = "#000";
+  context.fillStyle = "#28282B";
   context.fillRect(0, 0, pad.width, pad.height);
   context.fillStyle = "#fff";
   context.textAlign = "left";
