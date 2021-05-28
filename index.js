@@ -2,7 +2,7 @@ const file = document.getElementById("file");
 const canvas = document.getElementById("canvas");
 const ascii = document.getElementById("ascii-canvas");
 const change = document.getElementById("change");
-const brightnessChars = " .,:;ox%#@";
+const brightnessChars = " .:-=+*#%@";
 let video = document.createElement("video");
 video.width = 100;
 video.height = 200;
@@ -29,7 +29,7 @@ function main() {
     }
   });
   const url = document.getElementById("imgurl");
-  url.value = "https://i.ibb.co/bQLtmjg/51-p-Xospcd-L.jpg";
+  url.value = "https://i.postimg.cc/2yXR6LDB/89bfdg7w8xf61.jpg";
   img.src = url.value;
   ctx.imageSmoothingEnabled = false;
   getImage(img, ctx);
@@ -93,14 +93,14 @@ function getVideo(vid, ctx) {
 // }
 
 function drawText(iData, pad, context) {
-  context.fillStyle = "#28282B";
+  context.fillStyle = "#000";
   context.fillRect(0, 0, pad.width, pad.height);
   context.fillStyle = "#fff";
   context.textAlign = "left";
   context.textBaseline = "top";
-  context.font = "6px monospace";
-  for (let i = 0; i < iData.width; i += 6) {
-    for (let j = 0; j < iData.height; j += 6) {
+  context.font = `8px monospace`;
+  for (let i = 0; i < iData.width; i += 8) {
+    for (let j = 0; j < iData.height; j += 8) {
       let n = (j * iData.width + i) * 4;
       let value = iData.data[n];
       let str = brightnessChars[Math.floor(value / 32) + 1];
