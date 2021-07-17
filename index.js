@@ -88,10 +88,6 @@ function getVideo(vid, ctx) {
   };
 }
 
-// function getCharacterForGrayScale(grayScale) {
-//   return grayRamp[Math.ceil(((grayRamp.length - 1) * grayScale) / 255)];
-// }
-
 function drawText(iData, pad, context) {
   context.fillStyle = "#000";
   context.fillRect(0, 0, pad.width, pad.height);
@@ -108,43 +104,3 @@ function drawText(iData, pad, context) {
     }
   }
 }
-
-// function drawChar(char, { fontFamily = "monospace" } = {}) {
-//   const { canvas, ctx } = createCanvas();
-
-//   ctx.fillStyle = "#fff";
-//   ctx.fillRect(0, 0, canvas.width, canvas.height);
-//   ctx.fillStyle = "#000";
-//   ctx.textBaseline = "top";
-//   ctx.textAlign = "left";
-//   ctx.font = "20px " + fontFamily;
-
-//   ctx.fillText(char, 0, 0);
-
-//   return canvas;
-// }
-
-// function calculateBrightness(char, options) {
-//   const canvas = drawChar(char, options);
-//   const ctx = canvas.getContext("2d");
-//   const idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
-//   const data32 = new Uint32Array(idata.data.buffer);
-
-//   let brightness = 0;
-//   let i = data32.length;
-//   let r, g, b, pixel32;
-
-//   while (i--) {
-//     pixel32 = data32[i];
-
-//     r = pixel32 & 0xff;
-//     g = (pixel32 >> 8) & 0xff;
-//     b = (pixel32 >> 16) & 0xff;
-
-//     brightness += (r + g + b) / 3;
-//   }
-
-//   brightness /= canvas.width * canvas.height;
-
-//   return brightness;
-// }
