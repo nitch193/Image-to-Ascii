@@ -7,6 +7,7 @@ let video = document.createElement("video");
 video.width = 100;
 video.height = 200;
 video.controls = true;
+video.crossOrigin = "anonymous";
 document.querySelector("body").appendChild(video);
 function main() {
   let ctx = canvas.getContext("2d");
@@ -23,6 +24,7 @@ function main() {
     if (fileType === "video") {
       ascii.width = 800;
       ascii.height = 600;
+
       video.setAttribute("src", URL.createObjectURL(e.target.files[0]));
       video.controls = true;
       getVideo(video, ctx);
@@ -99,7 +101,7 @@ function drawText(iData, pad, context) {
     for (let j = 0; j < iData.height; j += 8) {
       let n = (j * iData.width + i) * 4;
       let value = iData.data[n];
-      let str = brightnessChars[Math.floor(value / 32) + 1];
+      let str = brightnessChars[Math.floor(value / 32)];
       context.fillText(str, i, j);
     }
   }
